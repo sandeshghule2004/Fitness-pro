@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FitPro Trainer Ultra</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:#0f0f0f;
+  color:white;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+
+/* HERO WITH IMAGE */
+.hero{
+  height:100vh;
+  background:url("https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  flex-direction:column;
+  position:relative;
+  animation:zoomBg 20s infinite alternate ease-in-out;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+}
+
+.hero-content{
+  position:relative;
+  z-index:1;
+}
+
+@keyframes zoomBg{
+  from{background-size:100%;}
+  to{background-size:120%;}
+}
+
+.hero h1{
+  font-size:60px;
+  background:linear-gradient(90deg,#00ff88,#00ccff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero p{
+  margin-top:15px;
+  font-size:18px;
+  color:#ccc;
+}
+
+.btn{
+  margin-top:25px;
+  padding:12px 25px;
+  border:none;
+  background:#00ff88;
+  color:black;
+  cursor:pointer;
+  border-radius:30px;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px #00ff88;
+}
+
+/* SECTION */
+section{
+  padding:80px 10%;
+  text-align:center;
+}
+
+h2{
+  margin-bottom:40px;
+  font-size:35px;
+}
+
+/* CARDS */
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  gap:30px;
+  justify-content:center;
+}
+
+.card{
+  background:#111;
+  width:300px;
+  border-radius:15px;
+  overflow:hidden;
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.card:hover img{
+  transform:scale(1.1);
+}
+
+.card h3{
+  margin:15px 0;
+}
+
+.card p{
+  padding:0 15px 20px;
+  color:#aaa;
+}
+
+.card.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.card:hover{
+  box-shadow:0 20px 40px rgba(0,255,136,0.4);
+}
+
+/* TRANSFORMATION GALLERY */
+.gallery{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  justify-content:center;
+}
+
+.gallery img{
+  width:250px;
+  border-radius:15px;
+  transition:0.4s;
+}
+
+.gallery img:hover{
+  transform:scale(1.1) rotate(2deg);
+  box-shadow:0 0 20px #00ff88;
+}
+
+/* BMI */
+.bmi-box{
+  max-width:400px;
+  margin:auto;
+  background:#111;
+  padding:30px;
+  border-radius:15px;
+}
+
+input{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+  background:#222;
+  border:none;
+  color:white;
+}
+
+.result{
+  margin-top:15px;
+  font-weight:bold;
+  color:#00ff88;
+}
+
+/* CONTACT */
+form{
+  max-width:500px;
+  margin:auto;
+}
+
+textarea{
+  width:100%;
+  padding:10px;
+  background:#222;
+  border:none;
+  color:white;
+  margin-top:10px;
+}
+
+/* Responsive */
+@media(max-width:768px){
+  .hero h1{font-size:35px;}
+  .cards{flex-direction:column;align-items:center;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-content">
+    <h1>Transform Your Body</h1>
+    <p>Professional Fitness Coaching & Real Results</p>
+    <button class="btn" onclick="scrollToSection('programs')">Start Now</button>
+  </div>
+</div>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <h2>Training Programs</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
+      <h3>Weight Loss</h3>
+      <p>Burn fat & build lean muscle with structured plans.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61">
+      <h3>Muscle Gain</h3>
+      <p>Strength training & hypertrophy workouts.</p>
+    </div>
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1579758629938-03607ccdbaba">
+      <h3>Personal Coaching</h3>
+      <p>Custom fitness & diet plan for your goals.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section>
+  <h2>Client Transformations</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1550345332-09e3ac987658">
+    <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2">
+    <img src="https://images.unsplash.com/photo-1577221084712-45b0445d2b00">
+  </div>
+</section>
+
+<!-- BMI -->
+<section>
+  <h2>BMI Calculator</h2>
+  <div class="bmi-box">
+    <input type="number" id="weight" placeholder="Weight (kg)">
+    <input type="number" id="height" placeholder="Height (cm)">
+    <button class="btn" onclick="calculateBMI()">Calculate BMI</button>
+    <div class="result" id="bmiResult"></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section>
+  <h2>Contact Me</h2>
+  <form>
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Your Email">
+    <textarea rows="4" placeholder="Your Message"></textarea>
+    <button class="btn">Send Message</button>
+  </form>
+</section>
+
+<script>
+
+/* Scroll */
+function scrollToSection(id){
+  document.getElementById(id).scrollIntoView({behavior:'smooth'});
+}
+
+/* Scroll Reveal */
+window.addEventListener("scroll",()=>{
+  const cards=document.querySelectorAll(".card");
+  cards.forEach(card=>{
+    const pos=card.getBoundingClientRect().top;
+    if(pos<window.innerHeight/1.2){
+      card.classList.add("show");
+    }
+  });
+});
+
+/* BMI */
+function calculateBMI(){
+  const weight=parseFloat(document.getElementById("weight").value);
+  const height=parseFloat(document.getElementById("height").value)/100;
+
+  if(!weight || !height){
+    document.getElementById("bmiResult").innerText="Enter valid values";
+    return;
+  }
+
+  const bmi=(weight/(height*height)).toFixed(2);
+  let category="";
+
+  if(bmi<18.5) category="Underweight";
+  else if(bmi<25) category="Normal";
+  else if(bmi<30) category="Overweight";
+  else category="Obese";
+
+  document.getElementById("bmiResult").innerText="BMI: "+bmi+" ("+category+")";
+}
+
+</script>
+
+</body>
+</html>
